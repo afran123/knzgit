@@ -1,0 +1,363 @@
+
+
+
+<!-- // for event emittor. -->
+<div><h1>Paternt Title </h1>
+<p> {{showMessage}} </p>
+<app-error-message (notifya) = "onNotifyClicked($event)" ></app-error-message>
+</div>
+
+
+
+
+<div class="container">
+	<div class="row">
+		<ul class="breadcrumb">
+			<li class="completed"><a href="javascript:void(0);">Personal Contact</a></li>
+			<li class="active"><a href="javascript:void(0);">Educational/Experience</a></li>
+			<li><a href="javascript:void(0);">Photo Upload</a></li>
+			<li><a href="javascript:void(0);">Payment</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="container-fluid">
+
+
+
+ <!--  1st ROW - Start  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
+  <div [hidden]="hideForm" class="row">
+
+    <div class="col-xs-2 col-md-2  well ">
+      <h2>My Heroes</h2>
+      <ul class="heroes">
+        <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </li>
+      </ul>
+      <div>
+        <h1> kazi herodetail here</h1>
+        <hero-detail [hero]="selectedHero"></hero-detail>
+      </div>
+    </div>
+
+
+  <!-- Second  Grid -->
+    <div class="col-xs-5 col-md-5 well ">
+      <div>
+        <h3>Copy of My Heroes</h3>
+      </div>
+
+
+
+
+
+
+      <!-- Start - R&D  Copy -->
+      <div  well>
+      <table class="table table-striped table-bordered table-hover ">
+        <thead>
+          <tr>
+            <th class="knz_id_th"> ID </th>
+            <th class="knz_name_th">Username</th>
+            <th class="knz_id_knz_th">ID KNZ</th>
+            <th class="knz_name_knz_th">Name KNZ</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let hero1 of heroesCopy ; let i = index" [class.selected]="hero1 === selectedHeroCopy" (click)="onSelectherocopy(hero1)">
+            <td class="knz_id"> {{hero1.id}} </td>
+            <!--<td class="knz_name">{{hero1.name}}</td> -->
+             <td >
+              <input type ="text" ngModel name={{id}}   >
+            </td>
+            <td class="knz_id_knz">{{hero1.idknz}}</td> 
+            <td class="knz_name_knz">{{hero1.nameknz}}</td>
+          </tr>
+                    
+        </tbody>
+      </table>
+    </div>
+    <!-- end - R&D  Copy -->
+
+
+
+      <!-- Start - Original Copy -->
+      <!--
+      <div  well>
+      <table class="table table-striped table-bordered table-hover ">
+        <thead>
+          <tr>
+            <th class="knz_id_th"> ID </th>
+            <th class="knz_name_th">Username</th>
+            <th class="knz_id_knz_th">ID KNZ</th>
+            <th class="knz_name_knz_th">Name KNZ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero1 of heroesCopy" [class.selected]="hero1 === selectedHeroCopy" (click)="onSelectherocopy(hero1)">
+            <td class="knz_id"> {{hero1.id}} </td>
+             <td >
+              <input type ="text" [(ngModel)]="hero1.name"     >
+            </td>
+            <td class="knz_id_knz">{{hero1.idknz}}</td> 
+            <td class="knz_name_knz">{{hero1.nameknz}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    -->
+    <!-- End - Original Copy -->
+
+
+
+
+    <div>
+    <button  class="btn btn-primary"  (click)="onDeleteCopy()" >Delete Row</button>
+    <button  class="btn btn-primary"  (click)="onRefreshHero2()" >Refresh Hero2</button>
+    <button  class="btn btn-primary"  (click)="onDropDownTable()" >DropDownList Table</button>
+    </div>
+
+    <div>
+    <ul>
+      <li *ngFor = " let hero2 of heroesCopy " >
+        <input type ="radio" name = "knzRadio"  value = {{hero2.id}} > {{hero2.name }} 
+      </li>
+    </ul>|
+    </div>
+    <!-- // kazi on 06/10/2017.  -->
+
+    <div>
+      <select #sel (change) = dropdownSel(sel.value) >
+      <option *ngFor = " let hero2 of heroesCopy " value = {{hero2.id}} > 
+        {{hero2.name }} 
+       </option>
+       </select>
+    </div>
+
+
+
+
+    </div>
+
+
+     <!-- Third Grid -->
+    <div class="col-xs-3 col-md-3 well">
+
+     <!-- <div class="container"> -->
+
+        <h2> User Data </h2>
+
+        <form [formGroup]="userForm"  >
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" #nameRef class="form-control" formControlName="name">
+            <div *ngIf="userForm.controls['name'].hasError('required')" class="alert alert-danger">
+              Please enter a Name
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>E-Mail</label>
+            <input type="text" class="form_control_knz" formControlName="email">
+          </div>
+
+          <div formGroupName="address">
+            <div class="form-group">
+              <label>Street</label>
+              <input type="text" class="form-control" formControlName="street">
+            </div>
+
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control" formControlName="city">
+            </div>
+
+            <div class="form-group">
+              <label>Postal Code</label>
+              <input type="text" class="form-control" formControlName="postalcode">
+              <div *ngIf="userForm.controls['address'].controls['postalcode'].hasError('pattern')" class="alert alert-danger">
+                Postal Code format is Five Digit.
+              </div>
+            </div>
+          </div>
+
+          <button  class="btn btn-primary"  (click)="onReadValue()" >ReadValue</button>
+          <button  class="btn btn-primary"  (click)="onWriteValue()" >WriteValue</button>
+          <button  class="btn btn-primary"  (click)="onShowModal()" >Show Modal</button>
+        </form>
+
+      <!--  </div>  -->
+    </div>
+
+     <!-- Fourth  Grid -->
+    <div class="col-xs-2 col-md-2 well ">
+    <h2>My Heroes Copy 2</h2>
+      <ul class="heroes">
+        <li *ngFor="let hero2 of heroesCopy2" >
+          <span class="badge">{{hero2.id}}</span> {{hero2.name}}
+        </li>
+      </ul>
+      <button  class="btn btn-primary"  (click)="onShowModal()" >Show Modal</button>
+    </div>
+
+  </div>
+<!--  1st ROW - END  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@   -->
+
+<!--  2nd ROW - START  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@   -->
+<div class="row">
+
+     <div class="col-xs-2 col-md-2 well  ">
+
+    </div>
+
+     <div class="col-xs-8 col-md-8 well  ">
+
+      <!-- Start - R&D  Copy -->
+
+      
+
+      <div class = "well" *ngIf="arraysizeDD > 0" > 
+
+      <table class="table table-striped table-bordered table-hover ">
+        <thead>
+          <tr>
+            <th class="dd_id_th"> Name </th>
+            <th class="dd_id_th">Position</th>
+            <th class="dd_id_th">Office</th>
+            <th class="dd_id_th">Ext</th>
+            <th class="dd_id_th_2">ID</th>
+            <th class="dd_id_th_2">Role</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          
+          <tr *ngFor="let varDDRow of dropDownTab ; let i = index" [class.selected]="varDDRow === selectedDDRow" (click)="onSelectDDRow(varDDRow)">
+            <td class="dd_id"> {{varDDRow.name}} </td>
+             <td  class="dd_id" >
+              <input type ="text" [(ngModel)]="varDDRow.position"   >
+            </td>
+            <td class="dd_id">{{varDDRow.office}}</td> 
+            <td class="dd_id">{{varDDRow.ext}}</td>
+
+            <td class="dd_id_2">
+                   <select #sel [(ngModel)]="varDDRow.id" >
+                      <option *ngFor = " let hero2 of heroDDList " value = {{hero2.id}} >  {{hero2.name }}  </option>
+                   </select>
+            </td>    
+            <!--
+            <td class="dd_id_2">
+              {{varDDRow.id}}
+            </td>   
+            -->
+
+            <td class="dd_id_2">
+                <!-- {{varDDRow.role}} -->
+                 <input type="checkbox" [(ngModel)]="varDDRow.role"   >
+            </td>
+          </tr>
+                    
+        </tbody>
+      </table>
+    </div>
+
+     <div>
+       <button  class="btn btn-primary"  (click)="onDiplayDDListValue()" >Display List value</button>
+     </div>
+
+
+    <!-- end - R&D  Copy -->
+
+
+
+    </div>
+
+     <div class="col-xs-2 col-md-2 well  ">
+
+    </div>
+
+</div>
+<!--  2ND ROW - END  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@   -->
+
+
+<!--  3nd ROW - start  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@  -->
+  <div class="row">
+
+    <div class="col-xs-2 col-md-2 well  ">
+
+    </div>
+
+    <div class="col-xs-3 col-md-3  well ">
+
+       <!-- <div id="table-scroll1">  kazi r and d -->
+      <table class="table table-striped table-bordered table-hover ">
+        <thead>
+          <tr>
+            <th class="knz_id_th"> ID </th>
+            <th class="knz_name_th">Username</th>
+            <th class="knz_id_knz_th">ID KNZ</th>
+            <th class="knz_name_knz_th">Name KNZ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+            <td class="knz_id"> {{hero.id}} </td>
+            <td class="knz_name">{{hero.name}}</td>
+            <td class="knz_id_knz">{{hero.idknz}}</td>
+            <td class="knz_name_knz">{{hero.nameknz}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+    </div>
+
+    <div class=" col-xs-1 col-md-1 well  ">
+
+    </div>
+
+
+    <div class="col-md-6  well ">
+
+      <div class="row well">
+        <div class="col-xs-6 col-md-6 well">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-2 col-md-2">2 col </div>
+        <div class="col-xs-4 col-md-4 well">.col-xs-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row well">
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row well">
+        <div class="col-xs-6 col-md-6  well">.col-xs-6</div>
+        <div class="col-xs-6 col-md-6 well">.col-xs-6</div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+<!--  2nd ROW - END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
+
+
+
+
+
+
+
+
+
+
+
+</div>

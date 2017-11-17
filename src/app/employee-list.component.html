@@ -1,0 +1,231 @@
+<div class="container-fluid">
+
+
+
+
+
+ <div class="row">
+
+    <div class="col-xs-6 col-md-6  well ">
+
+<div id="table-wrapper1">
+  <div id="table-scroll1">
+
+    <table>
+        <thead>
+            <tr>
+                <th><span class="text">A</span></th>
+                <th><span class="text">B</span></th>
+                <th><span class="text">C</span></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr> <td>1, 0</td> <td>2, 0</td> <td>3, 0</td> </tr>
+          <tr> <td>1, 1</td> <td>2, 1</td> <td>3, 1</td> </tr>
+          <tr> <td>1, 2</td> <td>2, 2</td> <td>3, 2</td> </tr>
+          <tr> <td>1, 3</td> <td>2, 3</td> <td>3, 3</td> </tr>
+          <tr> <td>1, 4</td> <td>2, 4</td> <td>3, 4</td> </tr>
+          <tr> <td>1, 5</td> <td>2, 5</td> <td>3, 5</td> </tr>
+          <tr> <td>1, 6</td> <td>2, 6</td> <td>3, 6</td> </tr>
+          <tr> <td>1, 7</td> <td>2, 7</td> <td>3, 7</td> </tr>
+          <tr> <td>1, 8</td> <td>2, 8</td> <td>3, 8</td> </tr>
+          <tr> <td>1, 9</td> <td>2, 9</td> <td>3, 9</td> </tr>
+          <tr> <td>1, 10</td> <td>2, 10</td> <td>3, 10</td> </tr>
+          <!-- etc... -->
+          <tr> <td>1, 99</td> <td>2, 99</td> <td>3, 99</td> </tr>
+        </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+
+
+
+   </div>
+
+       <div class="col-xs-6 col-md-6  well ">
+         </div>
+</div>
+
+
+
+  <div class="row">
+
+    <div class="col-xs-2 col-md-2 well  ">
+      <div *ngIf="selectedEmp">
+        <h2>{{selectedEmp.name}} kazi details!</h2>
+        <div><label>position: </label>{{selectedEmp.position}}</div>
+        <div>
+          <label>office: </label>
+          <input [(ngModel)]="selectedEmp.office" placeholder="office" />
+        </div>
+        <div>
+          <label>Ext: </label>
+          <input [(ngModel)]="selectedEmp.ext" placeholder="ext" />
+        </div>
+        <div>
+          <label>office: </label>
+          <input [(ngModel)]="selectedEmp.startDate" placeholder="startDate" />
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-xs-6 col-md-6  well ">
+
+
+      <div id="table-wrapper">
+        <div id="table-scroll">
+        <table   class="table-bordered table-hover ">  
+          <thead>
+            <tr>
+              <th><span class="text2" >Name </span></th>
+              <th><span class="colname-possn" >Position </span></th>
+              <th><span class="text2" >Office </span></th>
+              <th><span class="text2" >Ext </span></th>
+              <th><span class="text2" >StartDate </span></th>
+              <th><span class="text2">Salary </span></th>
+            </tr>
+          </thead>
+
+          <tbody class ="tdcolor" >
+            <tr *ngFor="let hero of empTable" [class.text4]="hero === selectedEmp" (click)="onSelect(hero)">
+              <td class="col_width_all">{{hero.name}}</td>
+              <td class="col_width_possn">{{hero.position}}</td>
+              <td class="col_width_all">{{hero.office}}</td>
+              <td class="col_width_all">{{hero.ext}}</td>
+              <td class="col_width_all">{{hero.startDate}}</td>
+              <td class="col_width_all">{{hero.salary}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+       </div> 
+      </div>
+
+
+      <!--  
+      <div>
+        <table class="table  table-bordered table-hover header-fixed ">
+          <thead>
+            <tr>
+              <th class="knz_id_th"> Name </th>
+              <th class="knz_id_th">Position</th>
+              <th class="knz_id_th">Office</th>
+              <th class="knz_id_th">Ext</th>
+              <th class="knz_id_th">StartDate</th>
+              <th class="knz_id_th">Salary</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let hero of empTable" [class.kazi]="hero === selectedEmp" (click)="onSelect(hero)">
+              <td class="knz_id"> {{hero.name}} </td>
+              <td class="knz_id">{{hero.position}}</td>
+              <td class="knz_id">{{hero.office}}</td>
+              <td class="knz_id">{{hero.ext}}</td>
+              <td class="knz_id">{{hero.startDate}}</td>
+              <td class="knz_id">{{hero.salary}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+      -->
+
+
+
+      <div>
+        <button class="btn btn-primary" (click)="onPopulateTable2()">Pupulate Table2</button>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="col-md-4  well ">
+
+      <div class="row well">
+        <div class="col-xs-6 col-md-6 well">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-2 col-md-2">2 col </div>
+        <div class="col-xs-4 col-md-4 well">.col-xs-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row well">
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row well">
+        <div class="col-xs-6 col-md-6  well">.col-xs-6</div>
+        <div class="col-xs-6 col-md-6 well">.col-xs-6</div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="row">
+
+    <div class="col-xs-3 col-md-3 well  ">
+    </div>
+
+    <!--  R and D Here $$$$$$$$$$$$$$$$$$$$$$$$$$  -->
+    <!--  R and D Here $$$$$$$$$$$$$$$$$$$$$$$$$$  -->
+    <!--  R and D Here $$$$$$$$$$$$$$$$$$$$$$$$$$  -->
+    <!--  R and D Here $$$$$$$$$$$$$$$$$$$$$$$$$$  -->
+    <div class="col-xs-6 col-md-6 well  ">
+      <div class="table-responsive">
+        <table  class="table table-bordered table-hover     ">
+
+          <thead  >
+            <tr>
+              <th class="knz_id_th_afran1">Name </th>
+              <th class="knz_id_th_afran2">Position</th>
+              <th class="knz_id_th_afran3">Office</th>
+              <th class="knz_id_th_afran4">Ext</th>
+              <th class="knz_id_th_afran5">StartDate</th>
+              <th class="knz_id_th_afran6">Salary</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let hero of empTable2" [class.kazi]="hero === selectedEmp2" (click)="onSelect2(hero)">
+              <td class="knz_id_afran1">{{hero.name}} </td>
+              <td class="knz_id_afran2">{{hero.position}}</td>
+              <td class="knz_id_afran3">{{hero.office}}</td>
+              <td class="knz_id_afran4">{{hero.ext}}</td>
+              <td class="knz_id_afran5">{{hero.startDate}}</td>
+              <td class="knz_id_afran6">{{hero.salary}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="onConsoleLog()">ConsleLog</button>
+      </div>
+    </div>
+
+
+    <div class="col-xs-3 col-md-3 well  ">
+    </div>
+
+  </div>
+
+
+
+</div>

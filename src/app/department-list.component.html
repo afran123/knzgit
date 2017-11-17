@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+
+ <div class="row">
+
+    <div class="col-xs-2 col-md-2 well  ">
+
+    <div *ngIf="selectedEmp">
+      <h2>{{selectedEmp.name}} details!</h2>
+      <div><label>position: </label>{{selectedEmp.position}}</div>
+      <div>
+        <label>office: </label>
+        <input [(ngModel)]="selectedEmp.office" placeholder="office"/>
+      </div>
+          
+       <div>
+        <label>Ext: </label>
+        <input [(ngModel)]="selectedEmp.ext" placeholder="ext"/>
+      </div>
+    <div>
+        <label>office: </label>
+        <input [(ngModel)]="selectedEmp.startDate" placeholder="startDate"/>
+      </div>
+     </div>
+      
+    </div>
+
+    <div class="col-xs-6 col-md-6   ">
+
+     
+     <div style='float:left;width:75%'>
+        <div class="info">
+          <p>This demonstrates multi selection table, where any click event causes a selection.</p>
+        </div>
+        <ngx-datatable
+          class="material"
+          [rows]="rows"
+          [columnMode]="'force'"
+          [columns]="columns"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="'auto'"
+          [limit]="5"
+          [selected]="selected"
+          [selectionType]="'multiClick'"
+          (activate)="onActivate($event)"
+          (select)='onSelect($event)'>
+        </ngx-datatable>
+      </div>
+    
+      <div class='selected-column'>
+        <h4>Selections</h4>
+        <ul>
+          <li *ngFor='let sel of selected'>
+            {{sel.name}}
+          </li>
+          <li *ngIf="!selected.length">No Selections</li>
+        </ul>
+      </div>
+
+    
+
+    </div>
+
+
+
+
+    <div class="col-md-4  well ">
+
+      <div class="row well"  >
+        <div class="col-xs-6 col-md-6 well">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-2 col-md-2" >2 col </div>
+        <div class="col-xs-4 col-md-4 well">.col-xs-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row well">
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+        <div class="col-xs-4 col-md-4 well">.col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row well">
+        <div class="col-xs-6 col-md-6  well">.col-xs-6</div>
+        <div class="col-xs-6 col-md-6 well">.col-xs-6</div>
+      </div>
+
+    </div>
+
+    
+  </div>
+
+
+</div>

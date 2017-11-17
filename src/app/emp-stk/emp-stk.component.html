@@ -1,0 +1,204 @@
+<div class="container-fluid">
+
+
+  <div [hidden]="hide_block1" class="row">
+    <div class="col-xs-8 col-md-8  well ">
+      <a (click)="onShowActive()">Active Sticker</a>
+      <p class="knzParagarh"> Click here to see all the Active Stickers of an Employee. This consists of Personal and Company Vehicles. It will show
+        all the Active Stickers as well. This is some text in a paragraph. This is some text in a paragraph2.This is some
+        text in a paragraph3.
+      </p>
+      <a (click)="onShowInProcess()">In process Sticker</a>
+      <p class="knzParagarh"> Click here to see all the In Process Stickers of an Employee. This consists of Personal and Company Vehicles. It will
+        show all the Active Stickers as well. This is some text in a paragraph. This is some text in a paragraph2.This is
+        some text in a paragraph3.
+      </p>
+      <a (click)="onShowNew()">New Vehicle</a>
+      <p class="knzParagarh"> Click here to create NEW Stickers of an Employee. This consists of Personal and Company Vehicles. It will show all
+        the Active Stickers as well. This is some text in a paragraph. This is some text in a paragraph2.This is some text
+        in a paragraph3.
+      </p>
+    </div>
+
+    <div class="col-xs-4 col-md-4  well ">
+    </div>
+  </div>
+
+
+
+  <!-- Active Sticker -->
+  <div [hidden]="hide_block2" class="row">
+    <div class="col-xs-8 col-md-8  well ">
+
+      <div id="table-wrapper">
+        <div id="table-scroll">
+        <table   class=" table-bordered table-hover ">  
+          <thead>
+            <tr >
+              <th ><span class="colname-possn" >Sticker Type </span></th>
+              <th><span class="text2" >Expiry Date </span></th>
+              <th><span class="text2" >Stk Office </span></th>
+              <th><span class="text2" >Year </span></th>
+              <th><span class="text2" >Make </span></th>
+              <th><span class="text2">Model </span></th>
+              <th><span class="text2">PlateNo </span></th>
+              <th><span class="text2">Status </span></th>
+            </tr>
+          </thead>
+
+          <tbody class ="tdcolor" >
+            <tr *ngFor="let hero of StickerListTab" [class.text4]="hero === selectedStkList" (click)="onSelectStkList(hero)">
+              <td class="col_width_possn">{{hero.Sticker_Type_Desc}}</td>
+              <td class="col_width_all">{{hero.Expiry_Date}}</td>
+              <td class="col_width_all">{{hero.sticker_Office_Desc}}</td>
+              <td class="col_width_all">{{hero.Veh_year}}</td>
+              <td class="col_width_all">{{hero.veh_Make_Desc}}</td>
+              <td class="col_width_all">{{hero.veh_model_Desc}}</td>
+              <td class="col_width_all">{{hero.Plate_No_Arabic}}</td>
+              <td class="col_width_all">{{hero.Process_Status_Desc}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+       </div> 
+      </div>
+      <br>
+      <div>
+        <button class="btn btn-primary" (click)="onShowStkDtl()">Next</button>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-xs-4 col-md-4  well ">
+    </div>
+  </div>
+
+
+
+  <!-- In-Process Sticker -->
+<div [hidden]="hide_block3" class="row">
+
+  <div class="col-xs-6 col-md-6  well ">
+
+<!--
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#homeTab" data-toggle="tab">Home</a>
+      </li>
+      <li>
+        <a href="#contactTab" data-toggle="tab">Contact</a>
+      </li>
+      <li>
+        <a href="#locationTab" data-toggle="tab">Location</a>
+      </li>
+    </ul>
+-->
+
+
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a  data-toggle="tab"  onclick="onHomeTab()" >Home</a>
+      </li>
+      <li>
+        <a  data-toggle="tab"  (Click)="onContactTab()" >Contact</a>
+      </li>
+      <li>
+        <a  data-toggle="tab" onclick="onLocationTab()" >Location</a>
+      </li>
+    </ul>
+
+
+    <div class="tab-content">
+      <div id="homeTab" class="tab-pane fade in active" >
+        <h3> Home Page</h3>
+        <p> Home Page Content</p>
+      </div>
+      <div id="contactTab" class="tab-pane">
+        <h3> Contact Page</h3>
+        <p> contaxt Page Content</p>
+      </div>
+      <div id="locationTab" class="tab-pane">
+        <h3> LOcation Page</h3>
+        <p> LOcation Page Content</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="col-xs-6 col-md-6  well ">
+
+
+
+    <div class="nav nav-tabs ">
+        <button  class="btn  btn-primary knz_button"  (click)="onHomeTab()" >Home</button>
+        <button  class="btn btn-primary knz_button "  (click)="onContactTab()" >Contact</button>
+        <button  class="btn btn-primary knz_button"  (click)="onLocationTab()" >Location Tab</button>
+    </div>
+
+   
+      <div  [hidden]="hide_tab1"  class="tab-pane fade in active" >
+        <h3> Home Page</h3>
+        <p> Home Page Content</p>
+      </div>
+      <div  [hidden]="hide_tab2" class="tab-pane fade in active"  >
+        <h3> Contact Page</h3>
+        <p> contaxt Page Content</p>
+      </div>
+      <div  [hidden]="hide_tab3" class="tab-pane fade in active" >
+        <h3> LOcation Page</h3>
+        <p> LOcation Page Content</p>
+      </div>
+   
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div [hidden]="hide_block3" class="row">
+  <div class="col-xs-8 col-md-8  well ">
+
+    <section>
+      <ul class="nav nav-pills">
+        <li> <a href ng-click="tab = 1"> Description </a>   </li>
+        <li>  <a href ng-click="tab = 2"> Specification </a>   </li>
+        <li>  <a href ng-click="tab = 3"> Reviews </a>   </li>
+    </ul>
+    </section>
+
+    </div>
+
+    <div class="col-xs-4 col-md-4  well ">
+    </div>
+  </div>
+
+  <div [hidden]="hide_block5" class="row">
+    <div class="col-xs-8 col-md-8  well ">
+    </div>
+
+    <div class="col-xs-4 col-md-4  well ">
+    </div>
+  </div>
+
+
+
+
+
+</div>

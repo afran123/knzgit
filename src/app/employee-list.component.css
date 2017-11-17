@@ -1,0 +1,292 @@
+#table-wrapper {
+  position:relative;
+}
+
+#table-scroll {
+  height:250px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+#table-wrapper table {
+  width:100%;
+
+}
+
+/* culprit here.
+#table-wrapper table * {
+  background:white;
+  color:blue;
+}
+*/
+
+#table-wrapper table thead * {
+  background:gray;
+  color:blue;
+}
+
+#table-wrapper table thead th .text2 {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:15%;
+}
+
+#table-wrapper table thead th .colname-possn {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:25%;
+}
+
+#table-wrapper table .tdcolor {
+  background:white;
+  color:brown;
+}
+
+#table-wrapper table tbody .text4 {
+  background:blue;
+  color:white;
+}
+
+#table-wrapper table tbody tr:hover {
+  background-color:lightgray;
+}
+
+.col_width_all {
+    width: 15%;
+}
+.col_width_possn {
+    width: 25%;
+}
+
+
+
+
+
+
+/*
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+  background:white;
+  color:black;
+}
+#table-wrapper table thead th .text {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+*/
+
+
+
+
+
+
+/*
+#table-wrapper table tbody tr .text3 {
+  border:2px solid red;
+  background-color: lightgreen;
+}
+
+#table-wrapper table tbody tr .text4 {
+   color:red;
+  background-color: lightpink;
+}
+*/
+
+
+
+
+
+.kazi4{
+  color:red;
+  background-color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.knz_id_th {
+    width: 15%;
+    color:red;
+    background-color: lightskyblue
+}
+.knz_name_th {
+    width: 20%;
+    color:blueviolet;
+}
+.knz_id_knz_th {
+    width: 30%;
+    color:blueviolet;
+}
+.knz_name_knz_th {
+    width: 40%;
+    color:blueviolet;
+}
+
+.knz_id {
+    width: 15%;
+}
+.knz_name {
+    width: 20%;
+}
+.knz_id_knz {
+    width: 30%;
+}
+.knz_name_knz {
+    width: 40%;
+}
+
+
+.table {
+    width: 100%;
+    display:block;
+}
+.table {
+    border-collapse: collapse !important;
+    background-color: lightgoldenrodyellow
+}
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+.tbody {
+    height: 150px;
+    display: inline-block;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+ 
+}
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: greenyellow;
+}
+
+
+
+
+
+
+
+.header-fixed {
+    height:300px;
+    overflow-y: scroll; 
+}
+
+
+.cust-table {table-layout:fixed;} 
+.cust-table thead, .cust-table tbody { 
+    display: block;
+}
+.cust-table tbody { max-height:420px; overflow-y:auto; }
+
+
+.afsa_header {
+    height:300px;  
+    overflow-y: scroll; 
+}
+
+
+.afran_table {table-layout:fixed;} 
+.afran_table thead, .afran_table tbody { 
+   display: block  /*! culprit here knz on 06/17/2017 */
+}
+.afran_table tbody { max-height:320px; overflow-y:auto; }
+
+
+
+
+
+.knz_id_th_afran1 {
+    width: 20%;
+    color:red;
+    background-color: lightskyblue
+}
+.knz_id_th_afran2 {
+    width: 20%;
+    color:red;
+    background-color: lightskyblue
+}
+
+.knz_id_th_afran3 {
+    width: 15%;
+    color:red;
+    background-color: lightskyblue
+}
+.knz_id_th_afran4 {
+    width: 15%;
+    color:red;
+    background-color: lightskyblue
+}
+.knz_id_th_afran5 {
+    width: 15%;
+    color:red;
+    background-color: lightskyblue
+}
+.knz_id_th_afran6 {
+    width: 15%;
+    color:red;
+    background-color: lightskyblue
+}
+
+
+.knz_id_afran1 {
+    width: 20%;
+}
+.knz_id_afran2 {
+    width: 20%;
+}
+.knz_id_afran3 {
+    width: 15%;
+}
+.knz_id_afran4 {
+    width: 15%;
+}
+.knz_id_afran5 {
+    width: 15%;
+}
+.knz_id_afran6 {
+    width: 15%;
+}

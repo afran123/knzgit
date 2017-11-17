@@ -1,0 +1,137 @@
+
+
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+
+
+
+
+.knz_underline {
+    text-decoration: underline;
+}
+
+.btn_small {
+  color: white;  
+  background-color: blue;
+  height:25px;
+  width:280px;
+}
+
+
+a{
+    color: blue;
+    background-color: transparent; 
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.knzParagarh{
+    padding-left: 10px;
+    color: chocolate;
+    background-color: transparent; 
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/*  TABLE LAYOUT  */
+#table-wrapper {
+  position:relative;
+}
+
+#table-scroll {
+  height:120px;
+  overflow:auto;  
+margin-top:20px;
+}
+
+#table-wrapper table {
+  width:100%;
+
+}
+
+/* culprit here.
+#table-wrapper table * {
+  background:white;
+  color:blue;
+}
+*/
+
+#table-wrapper table thead * {
+  background:gray;
+  color:white;
+}
+
+#table-wrapper table thead th .text2 {
+  position:absolute;
+  top:-20px;
+  z-index:2;
+  height:29px;
+  width:12%;
+  /* added the borderline on header kazi */
+  border: 1px solid #ddd;
+  text-align: center;
+  
+}
+
+#table-wrapper table thead  .text3 {
+vertical-align: middle;
+}
+
+.knz_button {
+  width:160px;
+}
+
+#table-wrapper table thead th .colname-possn {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:29px;
+  width:16%;
+  border: 1px solid #ddd;
+}
+
+#table-wrapper table .tdcolor {
+  background:white;
+  color:brown;
+}
+
+#table-wrapper table tbody .text4 {
+  background:blue;
+  color:white;
+}
+
+#table-wrapper table tbody tr:hover {
+  background-color:lightgray;
+}
+
+.col_width_all {
+  /* added the borderline on header kazi */
+    height:27px;
+    width: 12%;
+}
+.col_width_possn {
+    width: 16%;
+    height:27px;
+}
