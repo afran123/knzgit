@@ -26,7 +26,7 @@ export class DepartmentListComponent implements OnInit {
 
     selected = [];
 
-  //  columns: any[] = [
+  //  columns: any[] = [git difftool
     //    { name: 'name' },
     //    { position: 'position' },
     //    { office: 'office' },
