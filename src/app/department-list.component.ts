@@ -19,8 +19,9 @@ export class DepartmentListComponent implements OnInit {
 
     empTable: Emptab[];
     selectedEmp: Emptab;
-
-
+    // added to test git.
+    KNZ:string;
+    KNZTemp:string;
    // rows = [];
 
     selected = [];
